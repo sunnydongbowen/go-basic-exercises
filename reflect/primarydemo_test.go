@@ -14,7 +14,7 @@ func Print(val any) {
 	fmt.Println("value", reflect.ValueOf(val))
 	fmt.Println("kind", reflect.ValueOf(val).Kind())
 }
-func Test(t *testing.T) {
+func TestPrimary(t *testing.T) {
 	num := 3.14
 	Print(num)
 

@@ -27,7 +27,7 @@ func PrintValue(obj interface{}) {
 	}
 }
 
-func TestName(t *testing.T) {
+func TestKind(t *testing.T) {
 	var o interface{}
 	// interface value -> reflect oject
 	o = 3.14115
