@@ -7,9 +7,9 @@ import (
 )
 
 type Student struct {
-	id   string
-	Name string
-	Age  int
+	id   string `json:"id" iskey:"1"`
+	Name string `json:"cname" table:"t_student"`
+	Age  int    `json:"age"`
 }
 
 func (s Student) GetName() {

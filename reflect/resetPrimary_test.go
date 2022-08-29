@@ -43,3 +43,20 @@ func TestName(t *testing.T) {
 	}
 	fmt.Println(msg)
 }
+
+func TestElem(t *testing.T) {
+	msg := "hello"
+	fmt.Println("修改前的内存地址:", &msg)
+	valueOf := reflect.ValueOf(&msg)
+	valueOf.Elem().SetString("bowen")
+	// valueOf.SetString("bowen") 这样写会panic掉
+	fmt.Println(msg)
+	fmt.Println("reflect修改后的内存地址:", &msg)
+	msg = "Go"
+	fmt.Println("重新赋值后的内存地址:", &msg)
+	fmt.Println(msg)
+
+	//typeOf:=reflect.TypeOf(msg)
+	//Print(msg)
+
+}
