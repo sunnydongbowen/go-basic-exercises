@@ -1,5 +1,6 @@
 package test
 
+// testsuite test
 import (
 	"fmt"
 	"github.com/stretchr/testify/suite"

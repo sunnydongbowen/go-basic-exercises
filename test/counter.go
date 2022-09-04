@@ -1,5 +1,6 @@
 package test
 
+// benchmark test
 import (
 	"sync"
 	"sync/atomic"
@@ -13,7 +14,7 @@ type bench struct {
 
 func Counter() int32 {
 	var bench bench
-	for i := 0; i < 10; i++ {
+	for i := 0; i < 1000; i++ {
 		bench.wg.Add(1)
 		go func() {
 			bench.lock.Lock()
@@ -28,7 +29,7 @@ func Counter() int32 {
 
 func Counter2() int32 {
 	var bench bench
-	for i := 0; i < 10; i++ {
+	for i := 0; i < 1000; i++ {
 		bench.wg.Add(1)
 		go func() {
 			atomic.AddInt32(&bench.counter, 1)
