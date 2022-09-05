@@ -18,7 +18,9 @@ func NewFile(fd int, name string) *file {
 }
 
 func NewMatrix(name string) *matrix {
+	// 要记住new初始化实例的方式
 	m := new(matrix)
 	*m = matrix{name: name}
+	//m1:=matrix{name: name}
 	return m
 }
