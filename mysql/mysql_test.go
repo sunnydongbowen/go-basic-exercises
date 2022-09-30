@@ -7,6 +7,7 @@ import (
 	"testing"
 )
 
+// 了解就好，不常用
 var db *sql.DB
 
 func TestConnectMysql(t *testing.T) {
@@ -126,7 +127,7 @@ func update() {
 
 func deleteRow() {
 	sqlStr := "delete from user where id=?"
-	ret, err := db.Exec(sqlStr, 4)
+	ret, err := db.Exec(sqlStr, 2)
 	if err != nil {
 		fmt.Printf("delete failed,err：%v\n", err)
 		return
@@ -151,25 +152,63 @@ func sqlInject(name string) {
 	fmt.Printf("user:%#v\n", u)
 }
 
-// 
-func ()  {
+//
+//func ()  {
+//
+//}
 
-}
-
-func TestConnect(t *testing.T) {
+// 测试函数
+func TestQueryRow(t *testing.T) {
 	if err := initMysql(); err != nil {
 		fmt.Printf("init mysqld failed,err：%v\n", err)
 		return
 	}
 	fmt.Println("数据库链接成功")
-	//
-	//QueryRowDemo()
-	//queryMultiRow()
-	//insert()
-	//update()
-	// deleteRow()
-	sqlInject("xxx' or 1=1#")
-	sqlInject("xxx' union select * from user #")
-	sqlInject("xxx' and (select count(*) from user) <10 #")
+	QueryRowDemo()
+	defer db.Close()
+
+}
+
+func TestQueryMultiRow(t *testing.T) {
+	if err := initMysql(); err != nil {
+		fmt.Printf("init mysqld failed,err：%v\n", err)
+		return
+	}
+	queryMultiRow()
+	defer db.Close()
+}
+
+func TestInsert(t *testing.T) {
+	if err := initMysql(); err != nil {
+		fmt.Printf("init mysqld failed,err：%v\n", err)
+		return
+	}
+	insert()
+	defer db.Close()
+}
+
+func TestUpdate(t *testing.T) {
+	if err := initMysql(); err != nil {
+		fmt.Printf("init mysqld failed,err：%v\n", err)
+		return
+	}
+	update()
+	defer db.Close()
+}
+
+func TestDelete(t *testing.T) {
+	if err := initMysql(); err != nil {
+		fmt.Printf("init mysqld failed,err：%v\n", err)
+		return
+	}
+	deleteRow()
+	defer db.Close()
+}
+
+func TestConnect(t *testing.T) {
+
+	//sqlInject("xxx' or 1=1#")
+	//sqlInject("xxx' union select * from user #")
+	//sqlInject("xxx' and (select count(*) from user) <10 #")
 	defer db.Close()
 }

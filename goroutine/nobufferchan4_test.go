@@ -34,8 +34,8 @@ func TestCounterChan(t *testing.T) {
 		go func(i int) {
 			v := cter.Increase()
 			fmt.Printf("goroutine-%d: current counter value is %d\n", i, v)
+			wg.Done()
 		}(i)
-		wg.Done()
 	}
 	wg.Wait()
 }
