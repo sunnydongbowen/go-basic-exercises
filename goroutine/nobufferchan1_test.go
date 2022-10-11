@@ -6,6 +6,8 @@ import (
 	"time"
 )
 
+//geektime 专栏
+
 type signal struct {
 }
 
