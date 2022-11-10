@@ -5,6 +5,8 @@ import (
 	"testing"
 )
 
+// geek time 学习笔记
+
 func TestMap(t *testing.T) {
 	//var m map[string]int // m=nil  panic
 	m := map[string]int{}

@@ -22,7 +22,23 @@ func useBuffer() {
 	s, _ := reader.ReadString('\n')
 	fmt.Println("你输入的内容是:", s)
 }
+
+func exit() {
+	fmt.Println("Exit自动退出程序\n")
+	f := bufio.NewReader(os.Stdin)
+	input := ""
+	str := ""
+	for {
+		fmt.Println(">")
+		input, _ = f.ReadString('\n')
+		if len(input) == 1 {
+			continue // 空行继续输入
+		}
+		fmt.Sscan(input, &str) //移除换行
+
+	}
+}
 func main() {
-	useScan()
+	//useScan()
 	//useBuffer()
 }

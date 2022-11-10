@@ -1,4 +1,4 @@
-package reflect
+package gonote
 
 import (
 	"fmt"
@@ -7,6 +7,7 @@ import (
 	"testing"
 )
 
+// Go 语言学习笔记的内容
 type X int
 type Y int
 

@@ -1,4 +1,4 @@
-package homework
+package geek_homeworkv2
 
 import (
 	"database/sql"

@@ -1,4 +1,4 @@
-package reflect
+package wangming
 
 import (
 	"fmt"
@@ -19,6 +19,7 @@ func (s Student) GetName() {
 func (s *Student) GetAge() {
 	fmt.Println(s.Age)
 }
+
 func (s Student) getID() {
 	fmt.Println(s.id)
 }

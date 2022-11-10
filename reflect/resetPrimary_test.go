@@ -1,12 +1,15 @@
 package reflect
 
+// 汪明并发编程笔记或者是Go语言学习笔记中的demo？
+// 利用反射修改结构体的值
+
 import (
 	"fmt"
 	"reflect"
 	"testing"
 )
 
-func TestName(t *testing.T) {
+func TestPrimaryType(t *testing.T) {
 	msg := "hello"
 	typ := reflect.TypeOf(msg) // string
 	fmt.Println(typ)
