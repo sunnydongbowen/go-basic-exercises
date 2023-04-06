@@ -28,3 +28,11 @@ func TestPointer2(t *testing.T) {
 	p := &n // 取地址
 	fmt.Printf("%v,%T\n", p, p)
 }
+
+//	func  convert(a int)    *int{
+//		return *a
+//	}
+func TestP3(t *testing.T) {
+	c := 100
+	fmt.Print(c, *(&c))
+}
