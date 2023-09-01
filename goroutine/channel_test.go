@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"sync"
 	"testing"
-	"time"
 )
 
 var wg sync.WaitGroup
@@ -36,36 +35,6 @@ func TestChan3(t *testing.T) {
 	ch3 <- 17 //  向ch3发送一个整型数17
 	ch3 <- 27 //  由于此时ch3中缓冲区已满，再向ch3发送数据也将导致goroutine挂起
 
-}
-
-// 只发送
-func produce(ch chan<- int) {
-	for i := 0; i < 10; i++ {
-		ch <- i + 1
-		time.Sleep(time.Second)
-	}
-	close(ch)
-}
-
-// 只接收
-func consume(ch <-chan int) {
-	for n := range ch {
-		println(n)
-	}
-}
-func TestChan4(t *testing.T) {
-	ch := make(chan int, 5)
-	wg.Add(2)
-	go func() {
-		produce(ch)
-		wg.Done()
-	}()
-
-	go func() {
-		consume(ch)
-		wg.Done()
-	}()
-	wg.Wait()
 }
 
 func TestChan5(t *testing.T) {

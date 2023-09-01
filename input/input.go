@@ -35,10 +35,10 @@ func exit() {
 			continue // 空行继续输入
 		}
 		fmt.Sscan(input, &str) //移除换行
-
 	}
 }
+
 func main() {
 	//useScan()
-	//useBuffer()
+	useBuffer()
 }

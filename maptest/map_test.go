@@ -62,6 +62,7 @@ func TestChange(t *testing.T) {
 		"key1": 1,
 		"key2": 2,
 	}
+
 	fmt.Println(m)
 	fmt.Println(len(m))
 	m["key1"] = 11

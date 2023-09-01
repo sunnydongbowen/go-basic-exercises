@@ -23,12 +23,14 @@ func NewCounter() *counterchan {
 	return cter
 }
 
+// 返回channel里的数
 func (cter *counterchan) Increase() int {
 	return <-cter.c
 }
 
-func TestCounterChan(t *testing.T) {
+func TestChanMutex(t *testing.T) {
 	cter := NewCounter()
+
 	for i := 0; i < 10; i++ {
 		wg.Add(1)
 		go func(i int) {
