@@ -14,6 +14,17 @@ func TestMap(t *testing.T) {
 	fmt.Println(m)
 }
 
+// 初始化切片
+func TestDefi(t *testing.T) {
+	var m map[string]int
+	m = make(map[string]int, 10)
+	m["age"] = 123
+	m["phone"] = 123
+	for k, v := range m {
+		fmt.Println(k, v)
+	}
+}
+
 func TestMap2(t *testing.T) {
 
 	m1 := map[int][]string{
