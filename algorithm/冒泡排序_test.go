@@ -9,7 +9,7 @@ import (
 // @file:      冒泡排序_test.go
 // @author:    bowen
 // @time:      2023-09-23 20:08
-// @description:
+// @description: 3
 
 func BulleSort(a []int) []int {
 	//外层循环控制轮数

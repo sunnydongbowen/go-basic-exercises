@@ -137,12 +137,26 @@ func (u *UserHandler) Login(c *gin.Context) {
 		return
 	}
 	sess := sessions.Default(c)
-
+	sess.Options(sessions.Options{
+		//Secure: true,
+		//HttpOnly: true}
+		MaxAge: 60})
 	sess.Set("userid", user.ID)
+
 	sess.Save()
 	c.String(http.StatusOK, "登录成功")
 	return
 
+}
+
+func (u *UserHandler) LogOut(c *gin.Context) {
+	sess := sessions.Default(c)
+	// maxage 过期时间
+	sess.Options(sessions.Options{Secure: true, HttpOnly: true, MaxAge: -1})
+
+	sess.Save()
+
+	c.String(http.StatusOK, "退出登录成功")
 }
 
 func (u *UserHandler) Edit(c *gin.Context) {

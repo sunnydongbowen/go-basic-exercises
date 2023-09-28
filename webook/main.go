@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/gin-contrib/cors"
 	"github.com/gin-contrib/sessions"
-	"github.com/gin-contrib/sessions/cookie"
+	"github.com/gin-contrib/sessions/redis"
 	"github.com/gin-gonic/gin"
 	"go-basic-exercises/webook/internal/repository"
 	"go-basic-exercises/webook/internal/repository/dao"
@@ -64,8 +64,23 @@ func initWebServer() *gin.Engine {
 		MaxAge: 12 * time.Hour,
 	}))
 
-	store := cookie.NewStore([]byte("secret"))
+	//store := cookie.NewStore([]byte("secret"))
+
+	//memstore实现
+	//store := memstore.NewStore([]byte("eH2[tD3[aP9-gP9%mQ1!rH2`nZ1=pU5/"), []byte("yI2_yX4%jA0`yX8!xP4)oI1@rW9?uO8~"))
+
+	//redis实现
+	store, err := redis.NewStore(16, "tcp", "192.168.72.130:6379", "000415", []byte("eH2[tD3[aP9-gP9%mQ1!rH2`nZ1=pU5/"), []byte("yI2_yX4%jA0`yX8!xP4)oI1@rW9?uO8~"))
+	if err != nil {
+		panic(err)
+		//panic("redis err")
+	}
+	//store.Save()
+
+	//mystore := &sqlxstore.Store{}
+	//mystore.New()
 	server.Use(sessions.Sessions("mysession", store))
+
 	//这种写法要记得
 	server.Use(middleware.NewLoginMiddlerwareBuilder().IgnorePaths("/users/signup").IgnorePaths("/users/login").Buil())
 	return server
