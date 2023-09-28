@@ -4,8 +4,8 @@ import (
 	regexp "github.com/dlclark/regexp2"
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
-	"go-basic-exercises/webook/internal/domain"
-	"go-basic-exercises/webook/internal/service"
+	"go-basic-exercises/webookV1/internal/domain"
+	"go-basic-exercises/webookV1/internal/service"
 	"net/http"
 )
 
